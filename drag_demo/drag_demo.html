@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>drag拖放小案例</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.box{
+				width: 200px;
+				height: 50px;
+				background-color: green;
+				margin-top: 10px;
+			}
+			.wra{
+				position: absolute;
+				top: 0;
+				width: 200px;
+				height: 200px;  /*auto不行*/
+				left: 300px;
+				border: 1px solid black;
+			}
+			.wra:nth-of-type(1){
+				left: 0;
+				top:0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wra">
+			<div class="box" draggable="true">
+				1
+			</div>
+			<div class="box" draggable="true">
+				2
+			</div>
+			<div class="box" draggable="true">
+				3
+			</div>
+		</div>
+		<div class="wra"></div>
+
+		<script type="text/javascript">
+			var wra=document.getElementsByClassName('wra')[1];
+			var box=document.getElementsByClassName('box');
+			var dom=null;
+			for(var i=0;i<box.length;i++){      //给每个块添加开始拖拽的事件
+				box[i].ondragstart=function(){
+					dom=this;                   //谁触发了这个事件，就把它添加到变量dom上
+				}
+			}
+			wra.ondragover=function(e){
+				e.preventDefault();
+			}
+			wra.ondrop=function(){
+				this.appendChild(dom);     //触发放置事件后，将其添加到wra里面去
+				console.log("drop");
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>drag拖放</title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				left:10px;
+				top: 10px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div draggable="true">			
+		</div>
+		<!--img src="../CSS_AllDemo/CSS_Menu/Img/logo.jpg"/ img标签和a标签都是默认支持拖拽的--> 
+		<script>
+			var div=document.getElementsByTagName('div')[0];
+			var X=0,Y=0;
+			div.ondragstart=function(e){   //开始拖拽事件
+				//console.log('start');
+				X=e.clientX;
+				Y=e.clientY;
+			}
+			div.ondrag=function(e){        //拖拽过程中的事件
+				//console.log('drag');
+			}
+			div.ondragend=function(e){     //结束拖拽事件
+				//console.log('end');
+				var X1=e.clientX-X;
+				var Y1=e.clientY-Y;
+				div.style.left=div.offsetLeft+X1+'px';
+				div.style.top=div.offsetTop+Y1+'px';
+			}
+		</script>
+	</body>
+</html>
