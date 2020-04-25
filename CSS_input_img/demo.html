@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>HTML在透明输入框里添加图标</title>
+		<style type="text/css">
+			.search{
+				width: 260px;
+				height: 35px;
+				border: 1px solid red;
+				border-radius: 10px;
+			}
+			img{
+				width: 30px;
+				height: :;px;
+				/*vertical-align:middle;*/
+				display: flex;
+				background-color: white;
+			}
+			input{
+				width: 220px;
+				height: 35px;
+				left: 10px;
+				float:left;
+				border: 0;
+				outline:none;
+				background-color: rgba(255, 255, 255, 0);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="search">
+		        <form action="http://baidu.com">
+		           <input type="text" placeholder="请输入查找的内容">
+		               <span>
+		                 <a href="#"><img src="icon.png" alt=""></a>
+		               </span>
+				</form>
+		</div>
+	</body>
+</html>
